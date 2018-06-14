@@ -18,11 +18,11 @@ getResponseAction response =
         case parseAction of 
             Ok action -> 
                 case action of 
-                    "heartbeat" -> Heartbeat "heartbeat"
+                    "heartbeat" -> ApiHeartbeat "heartbeat"
                     "newuser" -> ApiNewUser "asdf" 0 
                     "newmessage" -> ApiNewMessage "asdf" "message"
                     "userleft" -> ApiUserLeft "asdf" 0
-                    _ -> ((++) "Unknown action " >> ApiError) action
+                    _ -> ApiError (action ++ " unknown action")
             Err errMsg ->
                 ApiError errMsg
 

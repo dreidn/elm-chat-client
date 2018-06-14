@@ -4,10 +4,8 @@ type alias UserName = String
 
 type ChatMessage = Message UserName String
 
-type RawResponse = Data String
-
 type ApiResponse = 
-    Heartbeat String
+    ApiHeartbeat String
     | ApiNewUser String Int
     | ApiNewMessage String String
     | ApiUserLeft String Int
