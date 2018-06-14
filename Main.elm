@@ -43,7 +43,7 @@ removeUser username model =
     in 
         Model users model.chatlog model.user
 
-updateMessages :ChatMessage ->  Model -> Model
+updateMessages : ChatMessage ->  Model -> Model
 updateMessages message model = Model model.members (message :: model.chatlog) model.user
 
 clearInput : Model -> Model
@@ -65,8 +65,8 @@ update msg model =
             (Model model.members model.chatlog {username=model.user.username, currentInput=input}, Cmd.none)
 
         WebsocketResponse response ->
-            case response of 
-                Heartbeat -> 
+            case getResponseAction response of 
+                ApiHeartbeat data -> 
                     (model, Cmd.none)
                 ApiNewUser name userCount ->
                     (addUser name model, Cmd.none)
@@ -74,6 +74,8 @@ update msg model =
                     (updateMessages (Message username message) model, Cmd.none)
                 ApiUserLeft username userCount ->
                     (removeUser username model, Cmd.none)
+                ApiError error ->
+                    (model, Cmd.none)
 
                     
 
@@ -91,7 +93,7 @@ displayChatMessage message =
 -- SUBSCRIPTIONS
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  subscribeApi WebsocketResponse
+  subscribeApi 
 
 
 -- VIEW
