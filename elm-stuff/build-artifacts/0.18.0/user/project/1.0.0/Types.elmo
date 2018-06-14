@@ -1,0 +1,37 @@
+var _user$project$Types$Message = F2(
+	function (a, b) {
+		return {ctor: 'Message', _0: a, _1: b};
+	});
+var _user$project$Types$Data = function (a) {
+	return {ctor: 'Data', _0: a};
+};
+var _user$project$Types$ApiError = function (a) {
+	return {ctor: 'ApiError', _0: a};
+};
+var _user$project$Types$ApiUserLeft = F2(
+	function (a, b) {
+		return {ctor: 'ApiUserLeft', _0: a, _1: b};
+	});
+var _user$project$Types$ApiNewMessage = F2(
+	function (a, b) {
+		return {ctor: 'ApiNewMessage', _0: a, _1: b};
+	});
+var _user$project$Types$ApiNewUser = F2(
+	function (a, b) {
+		return {ctor: 'ApiNewUser', _0: a, _1: b};
+	});
+var _user$project$Types$Heartbeat = function (a) {
+	return {ctor: 'Heartbeat', _0: a};
+};
+var _user$project$Types$WebsocketResponse = function (a) {
+	return {ctor: 'WebsocketResponse', _0: a};
+};
+var _user$project$Types$UserInput = function (a) {
+	return {ctor: 'UserInput', _0: a};
+};
+var _user$project$Types$NewMessage = function (a) {
+	return {ctor: 'NewMessage', _0: a};
+};
+var _user$project$Types$NewUser = function (a) {
+	return {ctor: 'NewUser', _0: a};
+};
